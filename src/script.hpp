@@ -215,6 +215,9 @@ struct Script_Config {
 
 	// Navigation related
 	const char* navi_generate_name;
+
+	//Aglao - OnPCUseSkillEvent
+	const char* useskill_event_name;
 };
 extern struct Script_Config script_config;
 

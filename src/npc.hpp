@@ -1494,6 +1494,7 @@ enum npce_event : uint8 {
 	NPCE_DIE,
 	NPCE_KILLPC,
 	NPCE_KILLNPC,
+	NPCE_SKILLUSE, //Aglao - OnPCUseSkillEvent
 	NPCE_MVPSPAWN,
 	NPCE_MAX
 };

@@ -13718,6 +13718,13 @@ void clif_parse_skill_toid( map_session_data* sd, uint16 skill_id, uint16 skill_
 
 	if( skill_lv )
 		unit_skilluse_id(&sd->bl, target_id, skill_id, skill_lv);
+
+	//Aglao - OnPCUseSkillEvent
+	pc_setreg(sd, (uint64)(add_str("@skillused_id")), skill_id);
+	pc_setreg(sd, (uint64)(add_str("@skillused_lv")), skill_lv);
+	pc_setreg(sd, (uint64)(add_str("@skillused_duration")), skill_get_time(skill_id, skill_lv));
+	npc_script_event(sd, NPCE_SKILLUSE);
+	//Fin Aglao - OnPCUseSkillEvent
 }
 
 
@@ -13828,6 +13835,13 @@ static void clif_parse_UseSkillToPosSub(int fd, map_session_data *sd, uint16 ski
 			unit_skilluse_pos(&sd->bl, x, y, skill_id,skill_lv);
 		}
 	}
+
+	//Aglao - OnPCUseSkillEvent
+	pc_setreg(sd, (uint64)(add_str("@skillused_id")), skill_id);
+	pc_setreg(sd, (uint64)(add_str("@skillused_lv")), skill_lv);
+	pc_setreg(sd, (uint64)(add_str("@skillused_duration")), skill_get_time(skill_id, skill_lv));
+	npc_script_event(sd, NPCE_SKILLUSE);
+	//Fin Aglao - OnPCUseSkillEvent
 }
 
 
